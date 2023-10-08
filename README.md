@@ -1,7 +1,5 @@
 # Line-Follower-Bot
 using Arduino Uno and L298N
-The Line Follower Robot is an automatic robot capable of following a specified path, typically a black line on a white surface.
-
 
 ## Features
 
@@ -15,7 +13,6 @@ The Line Follower Robot is an automatic robot capable of following a specified p
 
 Here is a list of components used in this project:
 
-List the specific components
   - **Arduino Uno**
   - **IR Sensor(2)**
   - **Chassis**
