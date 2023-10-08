@@ -1,0 +1,68 @@
+ int val = 0 ;  
+ int va2 = 0 ;  
+ void setup()  
+ {  
+   Serial.begin(9600); // sensor buart rate  
+   pinMode(2,INPUT);  // IR 1 SENSOR   
+   pinMode(3,INPUT);  // IR 2 SENSOR   
+   pinMode(5,OUTPUT); // LED PIN  
+   pinMode(6,OUTPUT); // LED PIN  
+   pinMode(7,OUTPUT); // LED PIN  
+   pinMode(8,OUTPUT); // LED PIN  
+   pinMode(9,OUTPUT);  // MOTOR 1 PIN  
+   pinMode(10,OUTPUT); // MOTOR 1 PIN  
+   pinMode(11,OUTPUT); // MOTOR 2 PIN  
+   pinMode(12,OUTPUT); // MOTOR 2 PIN  
+ }  
+ void loop()   
+ {  
+    val = digitalRead(2); // IR 1 sensor output pin connected  
+    va2 = digitalRead(3); // IR 2 sensor output pin connected  
+    Serial.println(val); // see the value in serial mpnitor in Arduino IDE  
+    Serial.println(va2); // see the value in serial mpnitor in Arduino IDE  
+    delay(10);  
+    if(val == 0 )       // RIGHT DIRECTION  
+    {  
+      digitalWrite(5,HIGH);  // LED ON  
+      digitalWrite(6,LOW);  // LED OFF  
+      digitalWrite(7,HIGH);  // LED ON  
+      digitalWrite(8,LOW);  // LED OFF  
+      digitalWrite(9,HIGH);  // MOTOR 1 HIGH  
+      digitalWrite(10,LOW);  // MOTOR 1 LOW  
+      digitalWrite(11,HIGH); // MOTOR 2 HIGH  
+      digitalWrite(12,LOW);  // MOTOR 2 LOW  
+    }  
+    if(va2 == 0 )       // LEFT DIRECTION  
+    {  
+      digitalWrite(5,LOW);  // LED OFF  
+      digitalWrite(6,HIGH);  // LED ON  
+      digitalWrite(7,LOW);  // LED OFF  
+      digitalWrite(8,HIGH);  // LED ON  
+      digitalWrite(9,LOW);  // MOTOR LOW  
+      digitalWrite(10,HIGH); // MOTOR HIGH  
+      digitalWrite(11,LOW);  // MOTOR LOW  
+      digitalWrite(12,HIGH); // MOTOR HIGH  
+    }  
+    if(val == 0 & va2 == 0 ) // FORWARD DIRECTION  
+    {  
+      digitalWrite(5,HIGH);  // LED ON  
+      digitalWrite(6,LOW);  // LED OFF  
+      digitalWrite(7,LOW);  // LED OFF  
+      digitalWrite(8,HIGH);  // LED ON  
+      digitalWrite(9,LOW);  // MOTOR 1 LOW  
+      digitalWrite(10,HIGH); // MOTOR 1 HIGH  
+      digitalWrite(11,HIGH); // MOTOR 2 HIGH  
+      digitalWrite(12,LOW);  // MOTOR 2 LOW  
+    }  
+     if(val == 1 & va2 == 1 ) // STOP DIRECTION  
+    {  
+      digitalWrite(5,LOW);  // LED OFF  
+      digitalWrite(6,LOW);  // LED OFF  
+      digitalWrite(7,LOW);  // LED OFF  
+      digitalWrite(8,LOW);  // LED OFF  
+      digitalWrite(9,LOW);  // MOTOR 1 LOW  
+      digitalWrite(10,LOW);  // MOTOR 1 LOW  
+      digitalWrite(11,LOW);  // MOTOR 1 LOW  
+      digitalWrite(12,LOW);  // MOTOR 1 LOW  
+    }  
+  }
